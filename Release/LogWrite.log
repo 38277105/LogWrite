@@ -1,0 +1,29 @@
+﻿生成启动时间为 2019/1/31/星期四 20:54:07。
+     1>项目“E:\zj\study\c++\ConnectPolymath\LogWrite\LogWrite.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D LOGWRITE_EXPORTS /D _CRT_SECURE_NO_WARNINGS /D DLLEXPORT /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt LogWrite.cpp
+         LogWrite.cpp
+     1>e:\zj\study\c++\connectpolymath\logwrite\logWrite.h(59): warning C4251: “CWriteLog::m_quLog”: class“std::queue<CWriteLog *,std::deque<_Ty,std::allocator<_Ty>>>”需要有 dll 接口由 class“CWriteLog”的客户端使用
+                 with
+                 [
+                     _Ty=CWriteLog *
+                 ]
+     1>LogWrite.cpp(341): warning C4244: “初始化”: 从“std::streamoff”转换到“size_t”，可能丢失数据
+     1>LogWrite.cpp(342): warning C4018: “<”: 有符号/无符号不匹配
+     1>LogWrite.cpp(519): warning C4018: “<”: 有符号/无符号不匹配
+       Link:
+         D:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\zj\study\c++\ConnectPolymath\Release\LogWrite.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"Log.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\zj\study\c++\ConnectPolymath\Release\LogWrite.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\zj\study\c++\ConnectPolymath\Release\LogWrite.lib" /MACHINE:X86 /SAFESEH /DLL Release\CoLinux.obj
+         Release\Compitable.obj
+         Release\CoWindows.obj
+         Release\dllmain.obj
+         Release\LogWrite.obj
+         Release\stdafx.obj
+            正在创建库 E:\zj\study\c++\ConnectPolymath\Release\LogWrite.lib 和对象 E:\zj\study\c++\ConnectPolymath\Release\LogWrite.exp
+         正在生成代码
+         已完成代码的生成
+         LogWrite.vcxproj -> E:\zj\study\c++\ConnectPolymath\Release\LogWrite.dll
+     1>已完成生成项目“E:\zj\study\c++\ConnectPolymath\LogWrite\LogWrite.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:22.68
