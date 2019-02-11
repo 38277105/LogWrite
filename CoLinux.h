@@ -6,7 +6,57 @@
 #ifndef _COLINUX_H
 #define _COLINUX_H
 
-#ifdef _linux_
+#ifdef _li
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nux_
 #include <pthread.h>
 #include "Compitable.h"
 typedef void *(*start_rtn) (void *);

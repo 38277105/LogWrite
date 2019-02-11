@@ -176,6 +176,91 @@ int CWriteLog::Log(LogLevel eLevel, const char *szFormat, ...)
 			m_pMutxLog->Lock(INFINITE);
 		}
 		/*if (INVALID_HANDLE_VALUE == m_hThreadLog)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		{
 			DWORD dwId = 0;
 			m_bRun = true;
@@ -274,7 +359,7 @@ bool CWriteLog::OpenFile(std::string & strInf, bool bCheckHistory)
 {
 	char szPath[512] = { 0 };
 	GetModuleFileNameA(NULL, szPath, sizeof(szPath));
-	char *sz = strrchr(szPath, '\\');
+	char *sz = strrchr(szPath, CDIR);
 	if (sz)
 	{
 		sz[0] = 0;
