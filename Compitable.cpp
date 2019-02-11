@@ -10,6 +10,10 @@ CCoThread::~CCoThread()
 {
 
 }
+CCoDir::~CCoDir()
+{
+
+}
 CFactory::CFactory()
 {
 
@@ -44,4 +48,13 @@ CCoThread *CFactory::CreateCoThread(void *pAttr, void *pRoute, void *pParam, uns
 	return new CLixThread(pAttr,pRoute,pParam);
 #endif
 	return nullptr;
+}
+CCoDir *CFactory::CreateCoDir()
+{
+#ifdef _WINDOWS
+	return new CWinDir();
+#endif
+#ifdef _linux_
+	return new CLixDir();
+#endif
 }

@@ -58,6 +58,8 @@
 
 nux_
 #include <pthread.h>
+#include <unistd.h>
+#include <sys/stat.h>
 #include "Compitable.h"
 typedef void *(*start_rtn) (void *);
 class CLixMutex : public CCoMutex
@@ -87,6 +89,14 @@ private:
 	PVOID m_pParam;
 };
 
+
+class CLixDir:public CCoDir
+{
+public:
+	char *GetCurDir(char *szName, int nLen);
+	BOOL CreateDir(const char *szName, void *pParam);
+	BOOL DeleteDir(const char *szName);
+};
 #endif
 
 

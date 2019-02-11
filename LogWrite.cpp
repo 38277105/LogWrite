@@ -358,8 +358,19 @@ int CWriteLog::Log(LogLevel eLevel, const char *szFormat, ...)
 bool CWriteLog::OpenFile(std::string & strInf, bool bCheckHistory)
 {
 	char szPath[512] = { 0 };
+<<<<<<< HEAD
 	GetModuleFileNameA(NULL, szPath, sizeof(szPath));
 	char *sz = strrchr(szPath, CDIR);
+=======
+	CCoDir *pDir = CFactory::CreateCoDir();
+	if (!pDir)
+	{
+		return false;
+	}
+	pDir->GetCurDir(szPath, sizeof(szPath));
+	//GetModuleFileNameA(NULL, szPath, sizeof(szPath));
+	char *sz = strrchr(szPath, '\\');
+>>>>>>> for directory
 	if (sz)
 	{
 		sz[0] = 0;
@@ -376,7 +387,8 @@ bool CWriteLog::OpenFile(std::string & strInf, bool bCheckHistory)
 		strncat(szPath, LOG, strlen(LOG));
 	}
 	strncat(szPath, DIR, 1);
-	CreateDirectoryA(szPath, NULL);
+	//CreateDirectoryA(szPath, NULL);
+	pDir->CreateDir(szPath, NULL);
 	char szDate[DATELEN+1] = { 0 };
 	char szTime[TIMELEN+1] = { 0 };
 	//the Date path
@@ -397,6 +409,7 @@ bool CWriteLog::OpenFile(std::string & strInf, bool bCheckHistory)
 	}
 	strncat(szPath, szDate, DATELEN);
 	strncat(szPath, DIR, 1);
+	/*
 	if (bCheckHistory)
 	{
 		char szLogFile[512] = { 0 };
@@ -434,8 +447,9 @@ bool CWriteLog::OpenFile(std::string & strInf, bool bCheckHistory)
 			}
 		}	
 	}
-	
-	CreateDirectoryA(szPath, NULL);
+	*/
+	//CreateDirectoryA(szPath, NULL);
+	pDir->CreateDir(szPath, NULL);
 	if (m_szPreName)
 	{
 		strncat(szPath, m_szPreName, strlen(m_szPreName));

@@ -34,6 +34,14 @@ public:
 	virtual long long Release() = 0;
 	virtual void Getid(void *p) = 0;
 };
+class CCoDir
+{
+public:
+	virtual ~CCoDir();
+	virtual char *GetCurDir(char *szName, int nLen) = 0;
+	virtual int CreateDir(const char *szName, void *pParam) = 0;
+	virtual int DeleteDir(const char *szName) = 0;
+};
 class  CFactory
 {
 private:
@@ -43,7 +51,7 @@ public:
 	//will be used in certain platform
 	static CCoMutex *CreateCoMutex(void *p, int nLocked, const char *szName);
 	static CCoThread *CreateCoThread(void *pAttr, void *pRoute, void *pParam, unsigned long dwStack);
-
+	static CCoDir *CreateCoDir();
 };
 
 #endif

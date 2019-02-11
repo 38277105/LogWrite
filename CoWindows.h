@@ -43,6 +43,14 @@ private:
 	DWORD m_dwStack;
 
 };
+class CWinDir :public CCoDir
+{
+public:
+	char *GetCurDir(char *szName, int nLen);
+	BOOL CreateDir(const char *szName, void *pParam);
+	BOOL DeleteDir(const char *szName);
+};
+
 #endif //end of ifdef _WINDOWS_
 
 

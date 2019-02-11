@@ -1,6 +1,7 @@
 
 #include "CoWindows.h"
 
+#ifdef _WINDOWS
 /**
  * constructor for CWinMutex,the original mutex will be created
  * @param[in] pattr: need to convert to type SECURITY_ATTRIBUTES *
@@ -168,3 +169,35 @@ void CWinThread::Getid(PVOID pID)
 
 }
 //------------------------------------------------------------------
+/**
+* Get directory
+*/
+char *CWinDir::GetCurDir(char *szName, int nLen)
+{
+	if (NULL == szName)
+	{
+		return nullptr;
+	}
+	GetModuleFileNameA(NULL, szName, nLen);
+	return szName;
+}
+//------------------------------------------------------------------
+/**
+* Create directory
+*/
+BOOL CWinDir::CreateDir(const char *szName, void *pParam)
+{
+
+	return CreateDirectoryA(szName,(LPSECURITY_ATTRIBUTES)pParam);
+}
+//------------------------------------------------------------------
+/**
+* Remove directory
+*/
+BOOL CWinDir::DeleteDir(const char *szName)
+{
+	
+	return RemoveDirectoryA(szName);
+}
+//------------------------------------------------------------------
+#endif

@@ -138,4 +138,42 @@ void CLixThread::Getid(PVOID pID)
 	
 }
 //------------------------------------------------------------------
+/**
+* Get directory
+*/
+char *CLixDir::GetCurDir(char *szName, int nLen)
+{
+	return getcwd(szName,nLen);
+}
+//------------------------------------------------------------------
+/**
+* Create directory
+*/
+BOOL CLixDir::CreateDir(const char *szName, void *pParam)
+{
+	if (0 == mkdir(szName,S_IRWXU | S_IRWXG | S_IRWXO))
+	{
+		return TRUE;
+	} 
+	else
+	{
+		return FALSE;
+	}
+}
+//------------------------------------------------------------------
+/**
+* Remove directory
+*/
+BOOL CLixDir::DeleteDir(const char *szName)
+{
+	if (0 == rmdir(szName))
+	{
+		return TRUE;
+	} 
+	else
+	{
+		return FALSE;
+	}
+}
+//------------------------------------------------------------------
 #endif
