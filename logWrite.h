@@ -9,11 +9,7 @@
 #include <string>
 #include <queue>
 #include "Compitable.h"
-#ifdef DLLEXPORT
-#define DLL_API   __declspec(dllexport)
-#else
-#define DLL_API   __declspec(dllimport)
-#endif
+
 
 enum LogLevel
 {

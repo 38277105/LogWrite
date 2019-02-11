@@ -2,10 +2,20 @@
 #define _COMDEF_H
 
 /************************************************************************
+ * include all head files platform-related
  * define all the macro and retype all the types                        *
  * which are differ in different platforms                              *
 ************************************************************************/
-
+//head files for linux
+#ifdef _linux_
+#endif
+//head files for windows
+#ifdef _WINDOWS
+#include <SDKDDKVer.h>
+#include <stdio.h>
+#include <tchar.h>
+#include <windows.h>
+#endif
 //for type and macro
 #ifdef _linux_
 #define DIR "/"
@@ -22,11 +32,15 @@
 //#define __cdecl 
 #define max(a,b)            (((a) > (b)) ? (a) : (b))
 #define min(a,b)            (((a) < (b)) ? (a) : (b))
-
+#define DLL_API
 #else //windows
 #define DIR "\\"	
 #define CDIR '\\'
-
+#ifdef DLLEXPORT
+#define DLL_API   __declspec(dllexport)
+#else
+#define DLL_API   __declspec(dllimport)
+#endif
 #endif
 //end for type and macro
 #ifdef _linux_

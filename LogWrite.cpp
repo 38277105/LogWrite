@@ -1,5 +1,4 @@
 
-#include "stdafx.h"
 #include <time.h>
 #include <sys/timeb.h>
 #include <iostream>
@@ -373,12 +372,13 @@ void CWriteLog::ReadLevelAndSize()
 {
 	char szPath[512] = { 0 };
 	GetModuleFileNameA(NULL, szPath, sizeof(szPath));
-	char *sz = strrchr(szPath, '\\');
+	char *sz = strrchr(szPath, CDIR);
 	if (sz)
 	{
 		sz[0] = 0;
 	}
-	strncat(szPath, "\\config.ini", strlen("\\config.ini"));
+	strncat(szPath, DIR, strlen(DIR));
+	strncat(szPath, "config.ini", strlen("config.ini"));
 	char szApp[32] = { 0 };
 	char szKey[128] = { 0 };
 	//global config

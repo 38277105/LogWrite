@@ -8,7 +8,11 @@
 
 #include "Compitable.h"
 #ifdef _WINDOWS
+#include <SDKDDKVer.h>
 #include <windows.h>
+
+#include <stdio.h>
+#include <tchar.h>
 class CWinMutex: public CCoMutex
 {
 public:

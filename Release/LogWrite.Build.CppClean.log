@@ -1,8 +1,11 @@
 e:\zj\study\c++\connectpolymath\logwrite\release\logwrite.pch
 e:\zj\study\c++\connectpolymath\logwrite\release\vc120.pdb
 e:\zj\study\c++\connectpolymath\logwrite\release\stdafx.obj
-e:\zj\study\c++\connectpolymath\logwrite\release\dllmain.obj
 e:\zj\study\c++\connectpolymath\logwrite\release\colinux.obj
+e:\zj\study\c++\connectpolymath\logwrite\release\dllmain.obj
+e:\zj\study\c++\connectpolymath\logwrite\release\logwrite.obj
+e:\zj\study\c++\connectpolymath\logwrite\release\cowindows.obj
+e:\zj\study\c++\connectpolymath\logwrite\release\compitable.obj
 e:\zj\study\c++\connectpolymath\release\logwrite.dll
 e:\zj\study\c++\connectpolymath\release\logwrite.pdb
 e:\zj\study\c++\connectpolymath\release\logwrite.lib
