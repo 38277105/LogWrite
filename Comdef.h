@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdarg.h>
 #endif
 //head files for windows
 #ifdef _WINDOWS
@@ -36,10 +37,11 @@
 #define max(a,b)            (((a) > (b)) ? (a) : (b))
 #define min(a,b)            (((a) < (b)) ? (a) : (b))
 #define DLL_API 
+#define INFINITE 0xFFFFFF
 #else //windows
 #define DIR "\\"	
 #define CDIR '\\'
-#define INFINITE 0xFFFFFFFF
+
 #ifdef DLLEXPORT
 #define DLL_API   __declspec(dllexport)
 #else

@@ -385,7 +385,15 @@ bool CWriteLog::OpenFile(std::string & strInf, bool bCheckHistory)
 void CWriteLog::ReadLevelAndSize()
 {
 	char szPath[512] = { 0 };
-	GetModuleFileNameA(NULL, szPath, sizeof(szPath));
+	//GetModuleFileNameA(NULL, szPath, sizeof(szPath));
+	CCoDir *pDir = CFactory::CreateCoDir();
+	if(NULL == pDir)
+	{
+		return;
+	}
+	pDir->GetCurDir(szPath,sizeof(szPath));
+	delete pDir;
+	pDir = NULL;
 	char *sz = strrchr(szPath, CDIR);
 	if (sz)
 	{
