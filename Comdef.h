@@ -39,6 +39,7 @@
 #else //windows
 #define DIR "\\"	
 #define CDIR '\\'
+#define INFINITE 0xFFFFFFFF
 #ifdef DLLEXPORT
 #define DLL_API   __declspec(dllexport)
 #else
