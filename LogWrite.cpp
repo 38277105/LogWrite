@@ -2,7 +2,7 @@
 #include <time.h>
 #include <sys/timeb.h>
 #include <iostream>
-#include "logWrite.h"
+#include "LogWrite.h"
 #define ERRLOG  "EROR      "
 #define WARLONG "WARN      "
 #define INFOLOG "INFO      "
