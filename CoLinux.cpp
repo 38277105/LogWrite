@@ -8,7 +8,7 @@
  *       original mutex
  *       0: success
 */
-CLixMutex::CLixMutex(LPVOID pattr,int &nRslt):m_pMutex(NULL)
+CLixMutex::CLixMutex(PVOID pattr,int &nRslt):m_pMutex(NULL)
 {
 	m_pMutex = alloc(sizeof(pthread_mutex_t));
 	if(NULL == m_pMutex)
