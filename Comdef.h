@@ -10,7 +10,7 @@
 #ifdef _linux_
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 #endif
 //head files for windows
 #ifdef _WINDOWS
@@ -35,7 +35,7 @@
 //#define __cdecl 
 #define max(a,b)            (((a) > (b)) ? (a) : (b))
 #define min(a,b)            (((a) < (b)) ? (a) : (b))
-#define DLL_API
+#define DLL_API 
 #else //windows
 #define DIR "\\"	
 #define CDIR '\\'

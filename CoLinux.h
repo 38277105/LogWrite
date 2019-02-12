@@ -10,7 +10,6 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <sys/stat.h>
-#include <string.h>
 #include "Compitable.h"
 typedef void *(*start_rtn) (void *);
 class CLixMutex : public CCoMutex
