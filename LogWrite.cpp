@@ -18,7 +18,7 @@ bool CWriteLog::m_bRun = false;
 
 std::queue<CWriteLog *> CWriteLog::m_quLog;
 //HANDLE CWriteLog::m_hThreadLog = INVALID_HANDLE_VALUE;
-CCoThread *CWriteLog::m_pThread = nullptr;
+CCoThread *CWriteLog::m_pThread = NULL;
 
 CCoMutex *CWriteLog::m_pMutxLog = NULL;
 
@@ -138,7 +138,7 @@ CWriteLog::~CWriteLog()
 		m_pThread->Wait();
 		m_pThread->Release();
 		delete m_pThread;
-		m_pThread = nullptr;
+		m_pThread = NULL;
 	}
 	
 }
@@ -266,9 +266,9 @@ int CWriteLog::Log(LogLevel eLevel, const char *szFormat, ...)
 			m_bRun = true;
 			m_hThreadLog = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)ThreadWriteLog, 0, 0, &dwId);
 		}*/
-		if (nullptr == m_pThread)
+		if (NULL == m_pThread)
 		{
-			m_pThread = CFactory::CreateCoThread(NULL, ThreadWriteLog, nullptr, 0);
+			m_pThread = CFactory::CreateCoThread(NULL, ThreadWriteLog, NULL, 0);
 			LONGLONG lRst = 0;
 			if (m_pThread)
 			{
@@ -277,7 +277,7 @@ int CWriteLog::Log(LogLevel eLevel, const char *szFormat, ...)
 			if (eSuccess != lRst)
 			{
 				delete m_pThread;
-				m_pThread = nullptr;
+				m_pThread = NULL;
 				
 			}
 			else
