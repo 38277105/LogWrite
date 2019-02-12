@@ -6,60 +6,11 @@
 #ifndef _COLINUX_H
 #define _COLINUX_H
 
-#ifdef _li
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-nux_
+#ifdef _linux_
 #include <pthread.h>
 #include <unistd.h>
 #include <sys/stat.h>
+#include <string.h>
 #include "Compitable.h"
 typedef void *(*start_rtn) (void *);
 class CLixMutex : public CCoMutex
