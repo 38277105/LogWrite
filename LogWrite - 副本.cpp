@@ -358,9 +358,10 @@ int CWriteLog::Log(LogLevel eLevel, const char *szFormat, ...)
 bool CWriteLog::OpenFile(std::string & strInf, bool bCheckHistory)
 {
 	char szPath[512] = { 0 };
-	//GetModuleFileNameA(NULL, szPath, sizeof(szPath));
-	
-
+<<<<<<< HEAD
+	GetModuleFileNameA(NULL, szPath, sizeof(szPath));
+	char *sz = strrchr(szPath, CDIR);
+=======
 	CCoDir *pDir = CFactory::CreateCoDir();
 	if (!pDir)
 	{
@@ -368,8 +369,8 @@ bool CWriteLog::OpenFile(std::string & strInf, bool bCheckHistory)
 	}
 	pDir->GetCurDir(szPath, sizeof(szPath));
 	//GetModuleFileNameA(NULL, szPath, sizeof(szPath));
-	char *sz = strrchr(szPath, CDIR);
-
+	char *sz = strrchr(szPath, '\\');
+>>>>>>> for directory
 	if (sz)
 	{
 		sz[0] = 0;
