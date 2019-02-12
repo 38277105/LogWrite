@@ -38,7 +38,7 @@
 #define min(a,b)            (((a) < (b)) ? (a) : (b))
 #define DLL_API 
 #define INFINITE 0xFFFFFF
-#define _snprintf(x,y,z,...) snprintf(x,y,z,...)
+
 #else //windows
 #define DIR "\\"	
 #define CDIR '\\'

@@ -248,7 +248,13 @@ int CWriteLog::Log(LogLevel eLevel, const char *szFormat, ...)
 	struct tm* ptm = localtime(&t.time);
 	char szTime[32] = { 0 };
 	char szWrite[512] = { 0 };
+#ifdef _WINDOWS
 	_snprintf(szWrite, sizeof(szWrite), "%04d-%02d-%02d %02d-%02d-%02d-%04d   %s\n", ptm->tm_year + 1900, ptm->tm_mon + 1, ptm->tm_mday, ptm->tm_hour, ptm->tm_min, ptm->tm_sec, t.millitm, szBuf);
+#endif
+#ifdef _linux_
+	snprintf(szWrite, sizeof(szWrite), "%04d-%02d-%02d %02d-%02d-%02d-%04d   %s\n", ptm->tm_year + 1900, ptm->tm_mon + 1, ptm->tm_mday, ptm->tm_hour, ptm->tm_min, ptm->tm_sec, t.millitm, szBuf);
+
+#endif
 	strncpy(m_szCurDate, szWrite, DATELEN);
 	//EnterCriticalSection(&m_crRec);
 	if (m_pMutxRec)
@@ -315,8 +321,15 @@ bool CWriteLog::OpenFile(std::string & strInf, bool bCheckHistory)
 	{
 		time_t t = time(NULL);
 		tm *ptm = localtime(&t);
+#ifdef _WINDOWS
 		_snprintf(szDate, sizeof(szDate), "%04d-%02d-%02d", ptm->tm_year + 1900, ptm->tm_mon + 1, ptm->tm_mday);
 		_snprintf(szTime, sizeof(szTime), "%02d-%02d-%02d", ptm->tm_hour, ptm->tm_min, ptm->tm_sec);
+#endif
+#ifdef _linux_
+		snprintf(szDate, sizeof(szDate), "%04d-%02d-%02d", ptm->tm_year + 1900, ptm->tm_mon + 1, ptm->tm_mday);
+		snprintf(szTime, sizeof(szTime), "%02d-%02d-%02d", ptm->tm_hour, ptm->tm_min, ptm->tm_sec);
+
+#endif
 	}
 	if (strlen(strInf.c_str()) > DATELEN + TIMELEN +1)
 	{
