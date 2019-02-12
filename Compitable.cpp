@@ -36,7 +36,7 @@ CCoMutex *CFactory::CreateCoMutex( void *p, int nLocked, const char *szName)
 		return new CLixMutex(p, nRslt);
 #endif
 		
-	return nullptr;
+	return NULL;
 }
 
 CCoThread *CFactory::CreateCoThread(void *pAttr, void *pRoute, void *pParam, unsigned long dwStack)
@@ -47,7 +47,7 @@ CCoThread *CFactory::CreateCoThread(void *pAttr, void *pRoute, void *pParam, uns
 #ifdef _linux_
 	return new CLixThread(pAttr,pRoute,pParam);
 #endif
-	return nullptr;
+	return NULL;
 }
 CCoDir *CFactory::CreateCoDir()
 {

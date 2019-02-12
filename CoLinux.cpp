@@ -79,9 +79,9 @@ int CLixMutex::Release()
 */
 CLixThread::CLixThread(PVOID pAttr,PVOID pRoute,PVOID pParam):
 m_id(0)
-,m_pAttr(nullptr)
+,m_pAttr(NULL)
 ,m_pParam(pParam)
-,m_pRtn(nullptr)
+,m_pRtn(NULL)
 {
 	m_pAttr = (pthread_attr_t *)pAttr;
 	m_pRtn = (start_rtn)pRoute;
