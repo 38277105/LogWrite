@@ -184,7 +184,7 @@ int CWriteLog::Log(LogLevel eLevel, const char *szFormat, ...)
 		}*/
 		if (NULL == m_pThread)
 		{
-			m_pThread = CFactory::CreateCoThread(NULL, ThreadWriteLog, NULL, 0);
+			m_pThread = CFactory::CreateCoThread(NULL, &ThreadWriteLog, NULL, 0);
 			LONGLONG lRst = 0;
 			if (m_pThread)
 			{
@@ -407,14 +407,21 @@ void CWriteLog::ReadLevelAndSize()
 	memcpy(szApp, LOG, strlen(LOG));
 	//file size
 	memcpy(szKey, SIZE, strlen(SIZE));
+#ifdef _WINDOWS
 	m_nSize = GetPrivateProfileIntA(szApp, szKey, MAX_FILE_SIZE, szPath);
 	//file level
 	strncpy(szKey, LEVEL, strlen(LEVEL));
 	m_nLevel = GetPrivateProfileIntA(szApp, szKey, DebugLog, szPath);
+#endif
+#ifdef _linux_
+	m_nSize = MAX_FILE_SIZE;
+	m_nLevel = DebugLog;
+#endif
 	//-----------end of global config
 	//certain config
 	if (m_szPreName)
 	{
+#ifdef _WINDOWS
 		//file size
 		memset(szKey, 0, sizeof(szKey));
 		strncpy(szKey, m_szPreName, strlen(m_szPreName));
@@ -425,6 +432,10 @@ void CWriteLog::ReadLevelAndSize()
 		strncpy(szKey, m_szPreName, strlen(m_szPreName));
 		strncat(szKey, LEVEL, strlen(LEVEL));
 		m_nLevel = GetPrivateProfileIntA(szApp, szKey, m_nLevel, szPath);
+#endif
+#ifdef _linux_
+
+#endif
 	}
 	//-----------end of certain config
 }
