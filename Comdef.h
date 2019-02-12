@@ -38,11 +38,13 @@
 #define min(a,b)            (((a) < (b)) ? (a) : (b))
 #define DLL_API 
 #define INFINITE 0xFFFFFF
+#define RETURNVALUE 0
 
 #else //windows
 #define DIR "\\"	
 #define CDIR '\\'
-
+#define RETURNVALUE 0
+typedef DWORD RETURNTYPE;
 #ifdef DLLEXPORT
 #define DLL_API   __declspec(dllexport)
 #else
@@ -86,7 +88,9 @@ typedef LONGLONG            USN;
 typedef BYTE                BOOLEAN;
 typedef void                *PVOID;
 typedef DWORD               *LPDWORD;
+typedef void *RETURNTYPE;
 #endif
+typedef RETURNTYPE(*start_rtn)(void *);
 enum EPlatform
 {
 	eWindows = 0,

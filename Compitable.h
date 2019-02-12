@@ -50,7 +50,7 @@ public:
 	//create mutex base on platform,attr,initial state and name(some param 
 	//will be used in certain platform
 	static CCoMutex *CreateCoMutex(void *p, int nLocked, const char *szName);
-	static CCoThread *CreateCoThread(void *pAttr, void *pRoute, void *pParam, unsigned long dwStack);
+	static CCoThread *CreateCoThread(void *pAttr, start_rtn pRoute, void *pParam, unsigned long dwStack);
 	static CCoDir *CreateCoDir();
 };
 

@@ -184,7 +184,7 @@ int CWriteLog::Log(LogLevel eLevel, const char *szFormat, ...)
 		}*/
 		if (NULL == m_pThread)
 		{
-			m_pThread = CFactory::CreateCoThread(NULL, (void *)ThreadWriteLog, NULL, 0);
+			m_pThread = CFactory::CreateCoThread(NULL, ThreadWriteLog, NULL, 0);
 			LONGLONG lRst = 0;
 			if (m_pThread)
 			{
@@ -591,7 +591,7 @@ void CWriteLog::DelObjFromQueue(CWriteLog *pObj)
 /**
  *	
 */
-void CWriteLog::ThreadWriteLog(void *pParam)
+RETURNTYPE CWriteLog::ThreadWriteLog(void *pParam)
 {
 	while (true == m_bRun)
 	{
@@ -634,6 +634,7 @@ void CWriteLog::ThreadWriteLog(void *pParam)
 	{
 		m_pMutxLog->Unlock();
 	}
+	return RETURNVALUE;
 }
 //------------------------------------------------------------
 /**

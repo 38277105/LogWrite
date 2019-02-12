@@ -39,7 +39,7 @@ CCoMutex *CFactory::CreateCoMutex( void *p, int nLocked, const char *szName)
 	return NULL;
 }
 
-CCoThread *CFactory::CreateCoThread(void *pAttr, void *pRoute, void *pParam, unsigned long dwStack)
+CCoThread *CFactory::CreateCoThread(void *pAttr, start_rtn pRoute, void *pParam, unsigned long dwStack)
 {
 #ifdef _WINDOWS
 	return new CWinThread(pAttr, pRoute, pParam, dwStack);
