@@ -77,14 +77,14 @@ int CLixMutex::Release()
 * @param[in] pRoute:the thread exe func
 * @param[in] pParam:the param for exe func
 */
-CLixThread::CLixThread(PVOID pAttr,PVOID pRoute,PVOID pParam):
+CLixThread::CLixThread(PVOID pAttr,start_rtn pRoute,PVOID pParam):
 m_id(0)
 ,m_pAttr(NULL)
 ,m_pParam(pParam)
 ,m_pRtn(NULL)
 {
 	m_pAttr = (pthread_attr_t *)pAttr;
-	m_pRtn = (start_rtn)pRoute;
+	m_pRtn = pRoute;
 }
 CLixThread::~CLixThread()
 {

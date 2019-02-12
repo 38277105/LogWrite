@@ -26,7 +26,7 @@ class CLixMutex : public CCoMutex
 class CLixThread: public CCoThread
 {
 public:
-	CLixThread(PVOID pAttr,PVOID pRoute,PVOID pParam);
+	CLixThread(PVOID pAttr,start_rtn pRoute,PVOID pParam);
 	~CLixThread();
 	LONGLONG Start();
 	LONGLONG Wait();
