@@ -10,7 +10,7 @@
 */
 CLixMutex::CLixMutex(PVOID pattr,int &nRslt):m_pMutex(NULL)
 {
-	m_pMutex = calloc(1,sizeof(pthread_mutex_t));
+	m_pMutex = (pthread_mutex_t *)calloc(1,sizeof(pthread_mutex_t));
 	if(NULL == m_pMutex)
 	{
 		return;
