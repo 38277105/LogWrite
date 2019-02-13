@@ -184,6 +184,7 @@ int CWriteLog::Log(LogLevel eLevel, const char *szFormat, ...)
 		}*/
 		if (NULL == m_pThread)
 		{
+			m_bRun = true;
 			m_pThread = CFactory::CreateCoThread(NULL, ThreadWriteLog, NULL, 0);
 			LONGLONG lRst = 0;
 			if (m_pThread)
