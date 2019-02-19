@@ -4,7 +4,9 @@ $(target):$(objs)
 	g++ -fPIC -shared -D_linux_ -o $(target) $(objs)
 $(objs):$(objs:.o=.cpp)	
 	g++ -fPIC -D_linux_ -c $(@:.o=.cpp) 
-.PHONY:clean
-clean:
+.PHONY:clean cleanobj cleantarget
+clean:cleanobj cleantarget
+cleanobj:
 	rm *.o
-	rm $(target)	
+cleantarget:
+	-rm -fr $(target)	
